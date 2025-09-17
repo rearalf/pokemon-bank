@@ -1,0 +1,27 @@
+:root {
+    --color-primary: #3954A4;
+    --color-border-primary: #1F2E6C
+}
+
+body {
+    background-color: #EDF0FD;
+}
+
+.navbar-styles {
+    background-color: #fff;
+}
+
+.navbar-static {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-border-primary);
+}
+
+.container-styles{
+    margin-top: 1rem;
+}

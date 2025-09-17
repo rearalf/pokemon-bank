@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Bank</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-styles navbar-static">
+        <div class="container-fluid container d-flex justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/1199px-Pokémon_Bank_logo.png" alt="Logo" width="86" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
+        </div>
+    </nav>
+
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="bg-white w-50 p-4 rounded-1 border">
+            <h1 class="mb-2 text-center">Bienvenid@</h>
+                <h2 class="mb-4 text-center">Inicio sesión</h2>
+                <div class="mb-3">
+                    <label for="basic-url" class="form-label">Usuario</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                            aria-describedby="basic-addon3 basic-addon4" placeholder="raro12" id="userLogIn">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="basic-url" class="form-label">Pin</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"
+                            aria-describedby="basic-addon3 basic-addon4" placeholder="****" id="userPin">
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary" id="btn-log-in">Iniciar</button>
+                </div>
+        </div>
+    </div>
+
+    <footer class="fixed-bottom bg-white">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">© 2025 Compañia</p>
+            <a href="./dashboard.html"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <img src="./assets/1199px-Pokémon_Bank_logo.png" alt="Logo" width="86" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
