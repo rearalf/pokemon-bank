@@ -1,120 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jefferson Gutierritos | Pokémon Bank</title>
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jefferson Gutierritos | Pokémon Bank</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-styles">
-        <div class="container position-relative">
+  <nav class="navbar navbar-expand-lg navbar-styles">
+    <div class="container position-relative">
+      <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="/">
+        <img src="assets/pokemon_bank_logo.png" alt="Logo" width="86" height="50">
+      </a>
+    </div>
+  </nav>
 
-            <!-- Logo SIEMPRE centrado -->
-            <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="/">
-                <img src="./assets/1199px-Pokémon_Bank_logo.png" alt="Logo" width="86" height="50">
-            </a>
+  <main class="container container-styles">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h1 class="mb-0">Bienvendio, Jefferson Gutierritos</h1>
+      <span class="badge text-bg-primary fs-6">Saldo: <span id="badge-balance">$0.00</span></span>
+    </div>
 
-            <!-- Botón hamburguesa a la derecha -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-3">
+        <button id="action-deposit" class="w-100 btn btn-outline-success py-3 h-100 d-flex align-items-center justify-content-center gap-2">
+          <img src="/assets/arrow-down-on-square.svg" alt="Depositar" width="24">
+          <span class="fw-semibold">Depositar</span>
+        </button>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <button id="action-withdraw" class="w-100 btn btn-outline-danger py-3 h-100 d-flex align-items-center justify-content-center gap-2">
+          <img src="/assets/arrow-up-on-square.svg" alt="Retirar" width="24">
+          <span class="fw-semibold">Retirar</span>
+        </button>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <button id="action-balance" class="w-100 btn btn-outline-primary py-3 h-100 d-flex align-items-center justify-content-center gap-2">
+          <span class="fw-semibold">Consultar saldo</span>
+        </button>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <button id="action-pay" class="w-100 btn btn-outline-secondary py-3 h-100 d-flex align-items-center justify-content-center gap-2">
+          <span class="fw-semibold">Pagar servicios</span>
+        </button>
+      </div>
+    </div>
 
-            <!-- Contenido colapsable alineado a la derecha -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="assets/user.svg" alt="Usuario" width="26" height="26">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="text-center mt-4">
+      <button id="go-historial" class="btn btn-primary">Ver Historial</button>
+    </div>
+  </main>
 
+  <!-- Modales -->
+  <div class="modal fade" id="modalDeposit" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Depositar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-    </nav>
-
-    <main class="container container-styles">
-        <h1 class="mb-4">Bienvendio, Jefferson Gutierritos</h1>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body d-flex align-items-center gap-2">
-                        <img src="/assets/arrow-down-on-square.svg" alt="Depositar" width="28">
-                        <h5 class="mb-0 card-title">Depositar</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-                        <!-- <p class="card-text"></p> -->
-                        <!-- <a href="#" class="card-link">Card link</a> -->
-                        <!-- <a href="#" class="card-link">Another link</a> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body d-flex align-items-center gap-2">
-                        <img src="/assets/arrow-up-on-square.svg" alt="Retirar" width="28">
-                        <h5 class="card-title mb-0">Retirar</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-                        <!-- <p class="card-text"></p> -->
-                        <!-- <a href="#" class="card-link">Card link</a> -->
-                        <!-- <a href="#" class="card-link">Another link</a> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body d-flex align-items-center gap-2">
-                        <h5 class="card-title mb-0">Consultar Saldo</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-                        <!-- <p class="card-text"></p> -->
-                        <!-- <a href="#" class="card-link">Card link</a> -->
-                        <!-- <a href="#" class="card-link">Another link</a> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body d-flex align-items-center gap-2">
-                        <h5 class="card-title mb-0">Pagar sevicios</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-                        <!-- <p class="card-text"></p> -->
-                        <!-- <a href="#" class="card-link">Card link</a> -->
-                        <!-- <a href="#" class="card-link">Another link</a> -->
-                    </div>
-                </div>
-            </div>
+        <div class="modal-body">
+          <label class="form-label">Monto</label>
+          <input type="number" class="form-control" id="deposit-amount" min="0" step="0.01" placeholder="0.00">
         </div>
-    </main>
-
-    <footer class="fixed-bottom bg-white">
-        <div class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-body-secondary">© 2025 Compañia</p>
-            <a href="/"
-                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img src="./assets/1199px-Pokémon_Bank_logo.png" alt="Logo" width="86" height="50"
-                    class="d-inline-block align-text-top">
-            </a>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" id="deposit-submit">Confirmar</button>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <div class="modal fade" id="modalWithdraw" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Retirar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Monto</label>
+          <input type="number" class="form-control" id="withdraw-amount" min="0" step="0.01" placeholder="0.00">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="withdraw-submit">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalBalance" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Saldo actual</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-4 mb-0" id="current-balance">$0.00</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPay" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pagar servicios</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Servicio</label>
+            <select class="form-select" id="pay-service">
+              <option>Internet</option>
+              <option>CAESS</option>
+              <option>ANDA</option>
+              <option>Teléfono</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Monto</label>
+            <input type="number" class="form-control" id="pay-amount" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" id="pay-submit">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="fixed-bottom bg-white">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-body-secondary">© 2025 Compañia</p>
+      <a href="/"
+         class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="assets/pokemon_bank_logo.png" alt="Logo" width="86" height="50"
+             class="d-inline-block align-text-top">
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
-
 </html>
