@@ -9,6 +9,7 @@ body {
 
 .navbar-styles {
     background-color: #fff;
+    min-height: 75px;
 }
 
 .navbar-static {
@@ -23,7 +24,7 @@ body {
 }
 
 .container-styles{
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 .boton-historial {
   margin-top: 25px
