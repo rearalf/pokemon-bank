@@ -24,27 +24,22 @@
     </nav>
 
     <div class="container min-vh-100 d-flex align-items-center justify-content-center">
-        <div class="bg-white w-50 p-4 rounded-1 border">
-            <h1 class="mb-2 text-center">Bienvenid@</h>
-                <h2 class="mb-4 text-center">Inicio sesión</h2>
-                <div class="mb-3">
-                    <label for="basic-url" class="form-label">Usuario</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control"
-                            aria-describedby="basic-addon3 basic-addon4" placeholder="raro12" id="userLogIn">
-                    </div>
+        <form class="bg-white w-50 p-4 rounded-1 border" id="form-login">
+            <h1 class="mb-2 text-center">Bienvenid@</h1>
+            <h2 class="mb-4 text-center">Inicio sesión</h2>
+        
+            <div class="mb-4">
+                <label for="pin" class="form-label">Pin</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="****" id="pin" name="pin">
                 </div>
-                <div class="mb-4">
-                    <label for="basic-url" class="form-label">Pin</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control"
-                            aria-describedby="basic-addon3 basic-addon4" placeholder="****" id="userPin">
-                    </div>
-                </div>
-                <div class="w-100 d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary" id="btn-log-in">Iniciar</button>
-                </div>
-        </div>
+                <small id="pin-error" class="text-danger"></small>
+            </div>
+        
+            <div class="w-100 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" id="btn-log-in">Iniciar</button>
+            </div>
+        </form>
     </div>
 
     <footer class="fixed-bottom bg-white">
@@ -60,7 +55,8 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>
