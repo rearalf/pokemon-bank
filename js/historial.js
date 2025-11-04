@@ -1,33 +1,29 @@
+import { fmt } from "./constants.js";
+import { deleteSession, getHistory } from "./storage.js";
 
 const KEY_HISTORY = 'pkbank_history';
 
 (function () {
-    const getHistory = () => {
-        try { return JSON.parse(localStorage.getItem(KEY_HISTORY) || '[]'); }
-        catch (e) { return []; }
-    };
-    const fmt = (n) => '$' + Number(n).toFixed(2);
-
     const body = document.getElementById('hist-body');
     const empty = document.getElementById('hist-empty');
-    const hist = getHistory();
+    const history = getHistory();
 
-    if (!hist.length) {
+    if (!history.length) {
         empty.classList.remove('d-none');
         return;
     }
     empty.classList.add('d-none');
-    body.innerHTML = hist.map(item => `
+    body.innerHTML = history.map(item => `
         <tr>
           <td>${item.date}</td>
-          <td>${item.type}</td>
+          <td>${item.service}</td>
           <td>${fmt(item.amount)}</td>
         </tr>
       `).join('');
 })();
 
 function exportarHistorialPDF() {
-    const history = JSON.parse(localStorage.getItem(KEY_HISTORY) || '[]');
+    const history = getHistory();
 
     if (history.length === 0) {
         alert('No hay datos para exportar.');
@@ -43,7 +39,7 @@ function exportarHistorialPDF() {
     const tableColumn = ['Fecha', 'Tipo', 'Monto ($)'];
     const tableRows = history.map(item => [
         item.date,
-        item.type,
+        item.service,
         item.amount.toFixed(2)
     ]);
 
@@ -69,3 +65,8 @@ function exportarHistorialPDF() {
 const btnExportPdf = document.getElementById('btn-export-pdf')
 
 btnExportPdf.addEventListener('click', exportarHistorialPDF)
+
+document.getElementById('log-out').addEventListener('click', () => {
+    deleteSession()
+    window.location.href = 'index.html'
+})

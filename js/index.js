@@ -1,5 +1,4 @@
-import { getUsers, setUsers } from "./storage.js";
-
+import { getSession, getUsers, setSession, setUsers } from "./storage.js";
 
 document.getElementById('form-login').addEventListener('submit', (e) => {
     e.preventDefault()
@@ -43,6 +42,7 @@ document.getElementById('form-login').addEventListener('submit', (e) => {
     if (user) {
         swal("Bienvenido", `Hola ${user.name || "Usuario"}`, "success");
         window.location.href = 'dashboard.html';
+        setSession(user)
     } else {
         swal("Error", "PIN incorrecto o usuario no encontrado", "error");
         pinInput.classList.add('is-invalid');
@@ -51,13 +51,18 @@ document.getElementById('form-login').addEventListener('submit', (e) => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
+    const session = getSession()
+    if (session !== null)
+        window.location.href = 'dashboard.html';
+
     const users = getUsers()
     if (users.length === 0) {
         setUsers({
             name: 'Ash Ketchum',
             pin: '1234',
             cuanta: '0987654321',
-            balance: 500
+            balance: 500,
+            history: []
         })
     }
 })

@@ -17,12 +17,16 @@
                 <img src="assets/pokemon_bank_logo.png" alt="Logo" width="86" height="50">
             </a>
         </div>
+        <button id="log-out" class="btn btn-primary mx-4">Salir</button>
     </nav>
 
     <main class="container container-styles">
         <div class="d-flex align-items-center justify-content-between mb-5">
-            <h1 class="mb-0">Bienvendio, Jefferson Gutierritos</h1>
-            <span class="badge text-bg-primary fs-6">Saldo: <span id="badge-balance">$0.00</span></span>
+            <h1 class="mb-0">Bienvendio, <span id="user-name"></span></h1>
+            <div class="d-flex gap-4 align-items-center">
+                <span class="badge text-bg-primary fs-6">Saldo: <span id="badge-balance">$0.00</span></span>
+                <button id="go-historial" class="btn btn-primary">Ver Historial</button>
+            </div>
         </div>
 
         <div class="row g-3">
@@ -56,9 +60,9 @@
             </div>
         </div>
 
-        <div class="text-center mt-5">
-            <button id="go-historial" class="btn btn-primary">Ver Historial</button>
-        </div>
+        <!-- <div class="text-center mt-5">
+           
+        </div> -->
 
         <div class="my-5">
             <canvas id="myChart"></canvas>
@@ -148,7 +152,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-secondary" id="pay-submit">Confirmar</button>
+                    <button type="button" class="btn btn-danger" id="pay-submit">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -168,7 +172,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
 </body>
 
 </html>

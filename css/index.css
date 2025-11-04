@@ -5,6 +5,9 @@
 
 body {
     background-color: #EDF0FD;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar-styles {
@@ -23,9 +26,14 @@ body {
     border-color: var(--color-border-primary);
 }
 
-.container-styles{
+.container-styles {
     margin-top: 3rem;
 }
+
+main {
+    flex: 1;
+}
+
 .boton-historial {
-  margin-top: 25px
+    margin-top: 25px
 }
